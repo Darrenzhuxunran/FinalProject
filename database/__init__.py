@@ -1,0 +1,1 @@
+from .inquire import queryTypeData,queryTypeRandomData,inquire_user,register,queryData

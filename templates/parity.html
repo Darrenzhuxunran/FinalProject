@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+{% block title %}
+比价
+{% endblock %}
+{% block link %}
+    <style>
+        .reset-top{
+            width: 99%!important;
+        }
+        .message{
+            display: none;
+            font-size: .75em;
+            color: #979696;
+        }
+        .card:hover .message{
+            display: block;
+        }
+        .card-text-title{
+            font-weight: bold;
+
+        }
+        .card-text-prcie{
+            font-size: .9em;
+            
+        }
+    </style>
+{% endblock %}
+{% block main %}
+
+<div class="mt-2">
+    
+    <form class="d-flex" role="search" method="post">
+        <input class="form-control me-2" type="search" placeholder="Search" name="name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    <div class="mt-2">
+        {%for i in data %}
+        <div class="card" style="width: 18rem;display: inline-block;">
+            <div style="width: 18rem;">
+                <img height="220" src="{{i['img']}}" class="card-img-top reset-top" alt="...">
+            </div>
+            <div class="card-body">
+                <p class="card-text card-text-title">{{i['product_name']}}</p>
+              <p class="card-text card-text-prcie">￥ {{i['price']}} / {{i['platform']}}</p>
+              <div class="message card-text">{{i['product_describe']}}</div>
+            </div>
+          </div> 
+          {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
